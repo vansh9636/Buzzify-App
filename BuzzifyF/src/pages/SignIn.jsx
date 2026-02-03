@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useContext } from 'react'
-import axios from 'axios'
 import Loading from '../components/Loading'
 import { Constext } from '../context/Context'
 import axiosInstance from '../Services/Axios.js'
@@ -43,7 +42,7 @@ const SignIn = () => {
   }
   return (
     <div className='h-screen py-2.5 px-5 ' id="signin-page">
-      <img className='h-[7.6rem] z-1' id='logo' src="src/assets/images/logo.re.png" alt="" />
+      <img className='h-[7.6rem] z-1' id='logo' src="public/assets/logo.re.png" alt="" />
       <h2 className='text-[28px]'>Sign In</h2>
       <form className="flex flex-col items-start mt-10 gap-4" id='signin-form' onSubmit={signinformHandle}>
         <input

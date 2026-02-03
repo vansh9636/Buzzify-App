@@ -44,7 +44,7 @@ const SignUp = () => {
   return (
     <>
       <div className='h-screen py-2.5 px-5' id="signup-page">
-        <img className='h-[7.6rem]' id='logo' src="src/assets/images/logo.re.png" alt="" />
+        <img className='h-[7.6rem]' id='logo' src="public/assets/logo.re.png" alt="" />
         <h2 className='text-[28px]'>Sign Up</h2>
         <form className="flex flex-col items-start mt-10 gap-4" id='signup-form' onSubmit={signupSubmit}>
           <input

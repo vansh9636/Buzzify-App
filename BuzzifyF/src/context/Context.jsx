@@ -16,7 +16,7 @@ const ConstextProvider = ({ children }) => {
             setuserData(res.data.UserData)
           }
           ).catch(err => {
-            if (err.response.status === 401) {
+            if (err.response?.status === 401) {
               localStorage.removeItem("token")
             }
             console.log("error", err);
