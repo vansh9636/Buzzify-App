@@ -37,7 +37,7 @@ const Dash = () => {
         <div
           className="flex items-center justify-between p-[5px] overflow-hidden" id='topnav'>
           <img className="h-10 w-28 object-cover rounded-3xl shadow-lg"
-            src="public/assets/logo.re.png" alt="logo" />
+            src="assets/logo.re.png" alt="logo" />
 
           <div className='notify-msg space-x-1'>
             <Link className="text-[20px] py-1 px-2 shadow-lg  text-black inline  relative bg-white rounded-2xl  after:content-[''] after:p-[5px] after:bg-orange-500 after:absolute after:rounded-full after:-top-[4px] after:right-[10%] after:hidden"
