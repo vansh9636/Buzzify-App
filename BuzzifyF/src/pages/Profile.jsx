@@ -35,7 +35,7 @@ const Profile = () => {
   async function logoutUser() {
     if (confirm("Are you sure to logout ⚠️")) {
       try {
-        const res = await axios.get("http://localhost:8000/user/logout",
+        const res = await axiosInstance.get("/user/logout",
           { withCredentials: true },
         );
         if (res.data.success) {
