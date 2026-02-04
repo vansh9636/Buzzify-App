@@ -16,7 +16,7 @@ const userRouter = require("./routes/userRouter");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(
-    { origin: "https://buzzify-app-xi.vercel.app", credentials: true }
+    { origin: ["https://buzzify-ky1nuuihq-vansh9636s-projects.vercel.app","https://buzzify-app-xi.vercel.app"], credentials: true }
 ));
 app.use(cookieParser());
 app.set("trust proxy", 1);
