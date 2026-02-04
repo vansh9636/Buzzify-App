@@ -18,7 +18,7 @@ const SignUp = () => {
   async function signupSubmit(e) {
     e.preventDefault();
     setloading(true);
-    await axiosInstance.post("/register", signupUserdata)
+    await axiosInstance.post("/user/register", signupUserdata)
       .then((res) => {
         if (res.data.success) {
           localStorage.setItem("token", JSON.stringify(res.data.token));

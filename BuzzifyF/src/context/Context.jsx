@@ -10,7 +10,7 @@ const ConstextProvider = ({ children }) => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       async function getuserData() {
-        await axiosInstance.get('/auth/Me')
+        await axiosInstance.get('/user/auth/Me')
           .then(res => {
             // console.log(res.data.UserData.posts)
             setuserData(res.data.UserData)
@@ -30,7 +30,7 @@ const ConstextProvider = ({ children }) => {
   // togglefollow&following
   async function togglefollow(NextGuyId) {
     try {
-      const res = await axiosInstance.get(`/checkfollow/${NextGuyId}`
+      const res = await axiosInstance.get(`/user/checkfollow/${NextGuyId}`
       );
       if (res.data.msg === "Unfollow") {
         setuserData((prev) => ({
@@ -50,7 +50,7 @@ const ConstextProvider = ({ children }) => {
   //toggleSavePost
   async function toggleSavePost(postId) {
     try {
-      let res = await axiosInstance.get(`/checksaved/${postId}`);
+      let res = await axiosInstance.get(`/user/checksaved/${postId}`);
       if (res.data.isSaved) {
         setuserData((prev) => ({
           ...prev,

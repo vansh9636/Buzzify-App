@@ -44,7 +44,7 @@ export default function AddPost() {
     formData.append("caption", NewPost.caption);
 
     try {
-      const response = await axiosInstance.post("/createpost",formData,
+      const response = await axiosInstance.post("/user/createpost",formData,
         {
           headers: { "Content-Type": "multipart/form-data" }
         }

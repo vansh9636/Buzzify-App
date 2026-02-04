@@ -23,7 +23,7 @@ const Profile = () => {
   useEffect(() => {
     const getUserProfile = async () => {
       try {
-        const res = await axiosInstance.get(`/getprofile/${userId}`);
+        const res = await axiosInstance.get(`/user/getprofile/${userId}`);
         setUserProfile(res.data.userprofile);
 
       } catch (err) {

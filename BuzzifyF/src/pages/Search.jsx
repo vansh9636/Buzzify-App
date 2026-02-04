@@ -8,7 +8,7 @@ const Search = () => {
     useEffect(() => {
         async function fatchUserdata() {
             try {
-                const res = await axiosInstance.get("/getalluser");
+                const res = await axiosInstance.get("/user/getalluser");
                 if (res.data.success) {
                     setsearchedUser(res.data.searchedUser)
                 }

@@ -20,7 +20,7 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
 
     async function likeOrUnlike(postId) {
         try {
-            let res = await axiosInstance.get(`/like/${postId}`);
+            let res = await axiosInstance.get(`/user/like/${postId}`);
             if (res.data.islike) {
                 setnewpostarr((prev) => (prev.map(item => {
                     return item._id === postId ? { ...item, likes: [...item.likes, userData._id] } : item
@@ -41,7 +41,7 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
         if (confirm("do you want to delete this post ?")) {
             setdeleteloading(true)
             try {
-                const res = await axiosInstance.delete(`/deletepost/${postId}`)
+                const res = await axiosInstance.delete(`/user/deletepost/${postId}`)
                 if (res.data.success) {
                     setdeleteloading(false)
                     setnewpostarr((prev) => (prev.filter(item => item._id !== postId)))
@@ -54,7 +54,7 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
     async function commenthandler(e, postId) {
         e.preventDefault()
         try {
-            const res = await axiosInstance.post(`/commentpost/${postId}`,
+            const res = await axiosInstance.post(`/user/commentpost/${postId}`,
                 { text: commentText });
             if (res.data.success) {
                 setnewpostarr((prev) => (

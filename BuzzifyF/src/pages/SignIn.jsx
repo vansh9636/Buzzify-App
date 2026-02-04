@@ -16,10 +16,10 @@ const SignIn = () => {
   const handler = (e) => {
     setsigninUserdata({ ...signinUserdata, [e.target.name]: e.target.value })
   }
-  const signinformHandle = (e) => {
+  async function signinformHandle(e) {
     e.preventDefault();
     setloading(true)
-    axiosInstance.post("/login", signinUserdata)
+    await axiosInstance.post("/user/login", signinUserdata)
       .then((res) => {
         if (res.data.success) {
           localStorage.setItem("token", JSON.stringify(res.data.token));

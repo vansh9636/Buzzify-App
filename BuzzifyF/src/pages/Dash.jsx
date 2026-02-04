@@ -17,7 +17,7 @@ const Dash = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axiosInstance.get("/allpost");
+        const res = await axiosInstance.get("/user/allpost");
         setallposts(res.data.posts);
       } catch (err) {
         if (err.response?.status === 401) {

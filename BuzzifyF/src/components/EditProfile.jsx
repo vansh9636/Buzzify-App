@@ -44,7 +44,7 @@ const EditProfile = ({ toggleEdit, setUserProfile }) => {
     }
 
     try {
-      const res = await axiosInstance.put("/editprofile", dataTosend, {
+      const res = await axiosInstance.put("/user/editprofile", dataTosend, {
         headers: { "Content-Type": "multipart/form-data" }
       });
       if (res.data.success) {
