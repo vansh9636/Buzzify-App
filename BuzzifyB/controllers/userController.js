@@ -39,6 +39,7 @@ exports.register = async (req, res) => {
                 res.cookie("token", token, {
                     httpOnly: true,
                     secure: true,
+                    sameSite: "none",
                     maxAge: 2 * 24 * 60 * 60 * 1000 // 2 days
 
                 });
@@ -84,6 +85,7 @@ exports.login = async (req, res) => {
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
+            sameSite: "none",
             maxAge: 2 * 24 * 60 * 60 * 1000 // 2 days
         });
         res.status(200).json({ msg: "Login successful", ResUserData, token, success: true });
