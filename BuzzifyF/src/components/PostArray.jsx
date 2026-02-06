@@ -10,6 +10,7 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
     const [isextendCaption, setisextendCaption] = useState(null)
     const [Togglecommentbox, setTogglecommentbox] = useState(null)
     const [commentText, setcommentText] = useState("")
+    const [commentloading, setcommentloading] = useState(false)
     const [newpostarr, setnewpostarr] = useState([]);
     const [deleteloading, setdeleteloading] = useState(false)
 
@@ -53,6 +54,7 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
     }
     async function commenthandler(e, postId) {
         e.preventDefault()
+        setcommentloading(true)
         try {
             const res = await axiosInstance.post(`/user/commentpost/${postId}`,
                 { text: commentText });
@@ -64,7 +66,9 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
                 ))
                 // console.log(res)
             }
+            setcommentloading(false)
             setcommentText("");
+
         } catch (error) {
             console.log("during the comment", error)
         }
@@ -147,8 +151,8 @@ const PostArray = ({ Postary, issetprofile, isNavlink }) => {
                                                             placeholder={`Comment to ${post.user.name} ...`}
                                                             required
                                                         />
-                                                        <button type='submit' className='py-1 text-base text-white px-4 rounded bg-indigo-600'>
-                                                            <i className="ri-arrow-up-line"></i>
+                                                        <button disabled={commentloading} type='submit' className='py-1 text-base text-white px-4 rounded bg-indigo-600'>
+                                                            {commentloading ? <i className="ri-loader-4-line animate-spin"></i> : <i className="ri-arrow-up-line"></i>}
                                                         </button>
                                                     </form>
                                                 </div>
